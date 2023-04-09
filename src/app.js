@@ -39,7 +39,20 @@ app.post("/tweets", (req, res) => {
 
 app.get("/tweets", (req, res) => {
 
-
+	if (tweets.length === 0) {
+		res.send([])
+	} else {
+		const allTweets = tweets.slice(-10)
+		const tweetsPage = allTweets.map((item) => {
+			const usuario = user.find(usuario => usuario.username == item.username)
+			return {
+				...item,
+				avatar: usuario.avatar
+			}
+		})
+		res.send(tweetsPage)
+	}
+	
 })
 
 app.listen(5000, () => {
