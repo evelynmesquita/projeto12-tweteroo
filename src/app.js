@@ -11,20 +11,28 @@ const user = [];
 const tweets = [];
 
 
-app.post("/sing-up", (req, res) => {
-    res.send('testando')
+app.post("/sign-up", (req, res) => {
+	const loginUser = req.body
+
+	if (!loginUser.username || typeof loginUser.username !== "string" || !loginUser.avatar || typeof loginUser.avatar !== "string") {
+		return res.status(400).send("Todos os campos são obrigatórios!")
+	}
+
+	user.push(loginUser)
+	res.status(201).send("OK")
+
 })
 
 app.post("/tweets", (req, res) => {
-    res.send('testando')
+
 })
+
 
 app.get("/tweets", (req, res) => {
-    res.send("testando")
+
+
 })
 
-
-
 app.listen(5000, () => {
-	console.log("Server on")
+	console.log("SERVER ONLINE")
 })
