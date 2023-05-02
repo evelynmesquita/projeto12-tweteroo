@@ -19,7 +19,7 @@ Here are the technologies used in this project.
 ## Getting started
 
 * Clone the repository to your local machine:.
-  - git clonehttps://github.com/evelynmesquita/tweteroo-api
+  - git clone https://github.com/evelynmesquita/tweteroo-api.git
   
 * Install the dependencies:
   - npm install
